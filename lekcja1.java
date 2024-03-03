@@ -5,9 +5,12 @@ import java.util.Scanner;
 public class lekcja1 {
     public static void main(String[] args) {
 
+        Scanner scanner = new Scanner(System.in);
+
         basicOperations();
         arraysEvenOrNotEven();
         calculatingBmi();
+        isPalindrome(scanner);
 
     }
     public static void basicOperations(){
@@ -53,6 +56,31 @@ public class lekcja1 {
 
         bmiValue = (weigth / (height * height));
         System.out.println("Your BMI is: " + bmiValue);
+    }
+
+    public static void isPalindrome(Scanner input){
+        System.out.println("Palindrome check, enter word or sentence: ");
+
+        while (input.hasNext()) {
+            String sentence = input.nextLine();
+            if (sentence.equals("quit")) {
+                break;
+            }
+            for (int i = 0; i < sentence.length() / 2; i++) {
+                char currentChar = sentence.charAt(i);
+                char checkedChar = sentence.charAt(sentence.length() - i - 1);
+
+                if (currentChar != checkedChar) {
+                    System.out.println("Input: [" + sentence + "] isn't a palindrome");
+                    break;
+                } else {
+                    System.out.println("Input: [" + sentence + "] is a palindrome");
+                    break;
+                }
+            }
+            System.out.println("Insert new entry or type 'quit' to exit. ");
+        }
+        System.out.println("The end of program.");
     }
 
 
