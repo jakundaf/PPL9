@@ -5,12 +5,12 @@ import java.util.Scanner;
 public class lekcja1 {
     public static void main(String[] args) {
 
-        Scanner scanner = new Scanner(System.in);
-
         basicOperations();
         arraysEvenOrNotEven();
         calculatingBmi();
-        isPalindrome(scanner);
+        passCheck();
+        isPalindrome();
+
 
     }
     public static void basicOperations(){
@@ -58,7 +58,9 @@ public class lekcja1 {
         System.out.println("Your BMI is: " + bmiValue);
     }
 
-    public static void isPalindrome(Scanner input){
+    public static void isPalindrome(){
+
+        Scanner input = new Scanner(System.in);
         System.out.println("Palindrome check, enter word or sentence: ");
 
         while (input.hasNext()) {
@@ -81,6 +83,30 @@ public class lekcja1 {
             System.out.println("Insert new entry or type 'quit' to exit. ");
         }
         System.out.println("The end of program.");
+    }
+
+    public static void passCheck (){
+        int[] points = new int[]{13, 21, 77, 98, 76, 51, 62, 79};
+        int pointsAverage = 0;
+        for (int i = 0; i < points.length; i++){
+             pointsAverage+= points[i];
+        }
+         pointsAverage= pointsAverage / points.length;
+        System.out.println(pointsAverage);
+
+        if  (pointsAverage > 0 && pointsAverage <= 49){
+            System.out.println("Your mark is [F]");
+        } else if (pointsAverage >= 50 && pointsAverage <= 59){
+            System.out.println("Your grade is [D]");
+        } else if (pointsAverage >= 60 && pointsAverage <= 69){
+            System.out.println("Your grade is [C]");
+        } else if (pointsAverage >= 70 && pointsAverage <= 79){
+            System.out.println(" Your grade is [B]");
+        } else if (pointsAverage > 79) {
+            System.out.println("Your grade is [A]");
+        } else {
+            System.out.println("Wrong data in input.");
+        }
     }
 
 
